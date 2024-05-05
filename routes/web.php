@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\front\XecomController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,10 +18,11 @@ Route::middleware([
 
 
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
 
 
-    
+    Route::get('/dashboard',[AdminController::class,'index'])->name('dashboard');
+
 });
