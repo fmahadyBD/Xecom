@@ -11,7 +11,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{route('new-category')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="" class="col-md-4 text-right">Category Name :</label>
