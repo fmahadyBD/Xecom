@@ -1,4 +1,4 @@
-<!-- START HEADER-->
+
 <header class="header">
     <div class="page-brand">
         <a class="link" href="{{ route('dashboard') }}">
@@ -147,6 +147,8 @@
                     <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
                     <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
                     <li class="dropdown-divider"></li>
+
+
                     <a class="dropdown-item" href="" onclick="event.preventDefault();document.getElementById('logoutForm').submit();"><i class="fa fa-power-off"></i>Logout</a>
                     <form action="{{ route('logout') }}" method="POST" id="logoutForm">
                         @csrf

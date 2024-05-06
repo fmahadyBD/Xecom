@@ -168,6 +168,8 @@
         $(document).ready(function () {
             toastr.success('{{ Session::get('message') }}');
         })
+
+        // toastr learn more
     </script>
 @endif
 
