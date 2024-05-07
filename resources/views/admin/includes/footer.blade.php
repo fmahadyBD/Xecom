@@ -31,4 +31,8 @@
             ]*/
         });
     })
+
+    function confirmed(message) {
+    return confirm(message);
+}
 </script>

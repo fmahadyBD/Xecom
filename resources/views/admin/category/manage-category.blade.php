@@ -42,8 +42,8 @@
                                                         <td>{{$category->status==1?'publish':'unpublish'}}</td>
                                                         <td>
                                                             <a href="{{route('edit-category',['id'=>$category->id])}}" class="btn btn-primary">Edit</a>
-                                                            <a href="{{route('delete-category',['id'=>$category->id])}}" class="btn btn-danger">Delete</a>
-                                                            {{-- <a href="{{route('deleteStudenti',['id'=>$i->id])}}" class="btn btn-danger">Delete</a> --}}
+                                                            <a href="{{route('delete-category',['id'=>$category->id])}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
+
                                                         </td>
 
 
