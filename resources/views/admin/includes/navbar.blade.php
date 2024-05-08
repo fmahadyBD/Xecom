@@ -33,10 +33,10 @@
                     <span class="nav-label">Sub Category</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse">
                         <li>
-                            <a href="colors.html">Colors</a>
+                            <a href="{{route('add-subCategory')}}">Create</a>
                         </li>
                         <li>
-                            <a href="typography.html">Typography</a>
+                            <a href="{{route('manage-subCategory')}}">Manage</a>
                         </li>
 
                     </ul>

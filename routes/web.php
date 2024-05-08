@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\front\XecomController;
+use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,7 +23,7 @@ Route::middleware([
 
     Route::get('/dashboard',[AdminController::class,'index'])->name('dashboard');
 
-
+    //category
     Route::get('/add-category',[CategoryController::class,'addCategory'])->name('add-category');
     Route::post('/new-category',[CategoryController::class,'newCategory'])->name('new-category');
 
@@ -30,6 +31,15 @@ Route::middleware([
     Route::get('/edit-category{id}',[CategoryController::class,'edit'])->name('edit-category');
     Route::post('/update-category',[CategoryController::class,'updateCategory'])->name('update-category');
     Route::get('/delete-category{id}',[CategoryController::class,'delete'])->name('delete-category');
+
+    //SubCategory
+    Route::get('/add-subCategory',[SubCategoryController::class,'addSubCategory'])->name('add-subCategory');
+    Route::post('/new-subCategory',[SubCategoryController::class,'newSubCategory'])->name('new-subCategory');
+
+    Route::get('/manage-subCategory',[SubCategoryController::class,'manageSubCategory'])->name('manage-subCategory');
+    Route::get('/edit-subCategory{id}',[SubCategoryController::class,'edit'])->name('edit-subCategory');
+    Route::post('/update-subCategory',[SubCategoryController::class,'updateSubCategory'])->name('update-subCategory');
+    Route::get('/delete-subCategory{id}',[SubCategoryController::class,'delete'])->name('delete-subCategory');
 
 
 });
