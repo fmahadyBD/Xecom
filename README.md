@@ -1,10 +1,4 @@
-# What I learn from here
-* The Topic's name: * 
-- [One-to-One Table Relation ](#One-to-One Table )
-
-
-
-
+- [One-to-One Table Relation ](#one-to-one-table-relation)
 ## One-to-One Table Relation 
 ### Overview
 
@@ -25,27 +19,3 @@ public function category()
 {
     return $this->belongsTo('App\Models\Category');
 }
-```
-
-### Usage
-
-When accessing a `Subcategory` instance, you can retrieve its associated `Category` using the `category` function. For example:
-
-```php
-$subCategory = Subcategory::find($id);
-$category = $subCategory->category;
-```
-
-This retrieves the `Category` object related to the `$subCategory`.
-
-### Context
-
-- **$subCategory**: This variable represents an instance of the `Subcategory` class, typically used within a loop or retrieved from the database.
-- **category**: Within the `Subcategory` model, `category` refers to the function that establishes the relation with the `Category` table.
-- **belongsTo()**: This method specifies that the `Subcategory` table has a foreign key referencing the `Category` table.
-
-## Conclusion
-
-In summary, the `category` function within the `Subcategory` model enables the establishment of a one-to-one table relation between the `Subcategory` and `Category` tables in Laravel. By utilizing Eloquent's built-in methods, developers can easily navigate and work with related data in their applications.
-
-
