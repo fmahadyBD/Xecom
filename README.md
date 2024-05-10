@@ -3,7 +3,8 @@
 -   The Topic's name: \*
 
 *   [One-to-One Table Relation ](#one-to-one-table-relation)
-*   [Subcategory by the Category ](#Subcategory by the Category)
+*   [Subcategory by the Category](#Subcategory-by-the-Category)
+*   [Globar data by AppProvider](#Globar-data-by-AppProvider)
 
 ## One-to-One Table Relation
 
@@ -164,5 +165,31 @@ public function getSubCategory($id) {
     $this->subCategory = SubCategory::where('category_id', $id)->get();
     return response()->json($this->subCategory);
 }
+
+
+
+
+## Globar data by AppProvider
+
+### AppProvider Code
+
+```php
+public function boot(): void
+{
+    View::composer(['front.includes.header'], function ($view) {
+        $view->with('categoriesH', Category::where('status', 1)->get());
+    });
+}
 ```
-```
+
+### Blade File Changes
+
+```html
+<li><a href="{{ route('category-page') }}">Category</a>
+    <ul class="sub-menu-style">
+        @foreach ($categoriesH as $category)
+            <li><a href="{{ route('category-page') }}"> {{ $category->name }}</a></li>
+        @endforeach
+    </ul>
+</li>
+

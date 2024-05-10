@@ -20,12 +20,19 @@
                             </div>
                         </div>
                         <div class="language-wrap">
-                            <a class="language-active" href="#"><img src="{{   asset('/')  }}assets/images/icon-img/flag.png" alt=""> English <i class=" ti-angle-down "></i></a>
+                            <a class="language-active" href="#"><img
+                                    src="{{ asset('/') }}assets/images/icon-img/flag.png" alt=""> English <i
+                                    class=" ti-angle-down "></i></a>
                             <div class="language-dropdown">
                                 <ul>
-                                    <li><a href="#"><img src="{{   asset('/')  }}assets/images/icon-img/flag.png" alt="">English </a></li>
-                                    <li><a href="#"><img src="{{   asset('/')  }}assets/images/icon-img/spanish.png" alt="">Spanish</a></li>
-                                    <li><a href="#"><img src="{{   asset('/')  }}assets/images/icon-img/arabic.png" alt="">Arabic </a></li>
+                                    <li><a href="#"><img src="{{ asset('/') }}assets/images/icon-img/flag.png"
+                                                alt="">English </a></li>
+                                    <li><a href="#"><img
+                                                src="{{ asset('/') }}assets/images/icon-img/spanish.png"
+                                                alt="">Spanish</a></li>
+                                    <li><a href="#"><img
+                                                src="{{ asset('/') }}assets/images/icon-img/arabic.png"
+                                                alt="">Arabic </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -39,18 +46,24 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-6 col-6">
                     <div class="logo">
-                        <a href={{route('/')}}><img src="{{   asset('/')  }}assets/images/logo/logo.png" alt="logo"></a>
+                        <a href={{ route('/') }}><img src="{{ asset('/') }}assets/images/logo/logo.png"
+                                alt="logo"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block d-flex justify-content-center">
                     <div class="main-menu text-center">
                         <nav>
                             <ul>
-                                <li><a href={{route('/')}}>HOME</a>
+                                <li><a href={{ route('/') }}>HOME</a>
 
                                 </li>
-                                <li><a href={{route('category-page')}}>SHOP</a>
+                                <li><a href="{{ route('category-page') }}">Category</a>
+                                    <ul class="sub-menu-style">
+                                        @foreach ($categoriesH as $category)
+                                            <li><a href="{{ route('category-page') }}"> {{ $category->name }}</a></li>
+                                        @endforeach
 
+                                    </ul>
                                 </li>
                                 <li><a href="#">PAGES</a>
                                     <ul class="sub-menu-style">
@@ -123,11 +136,12 @@
             <ul>
                 <li>
                     <div class="cart-img">
-                        <a href="#"><img src="{{   asset('/')  }}assets/images/cart/cart-1.jpg" alt=""></a>
+                        <a href="#"><img src="{{ asset('/') }}assets/images/cart/cart-1.jpg"
+                                alt=""></a>
                     </div>
                     <div class="cart-title">
                         <h4><a href="#">Stylish Swing Chair</a></h4>
-                        <span> 1 × $49.00	</span>
+                        <span> 1 × $49.00 </span>
                     </div>
                     <div class="cart-delete">
                         <a href="#">×</a>
@@ -135,11 +149,12 @@
                 </li>
                 <li>
                     <div class="cart-img">
-                        <a href="#"><img src="{{   asset('/')  }}assets/images/cart/cart-2.jpg" alt=""></a>
+                        <a href="#"><img src="{{ asset('/') }}assets/images/cart/cart-2.jpg"
+                                alt=""></a>
                     </div>
                     <div class="cart-title">
                         <h4><a href="#">Modern Chairs</a></h4>
-                        <span> 1 × $49.00	</span>
+                        <span> 1 × $49.00 </span>
                     </div>
                     <div class="cart-delete">
                         <a href="#">×</a>
