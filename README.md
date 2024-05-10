@@ -166,7 +166,7 @@ public function getSubCategory($id) {
     return response()->json($this->subCategory);
 }
 
-
+```
 
 
 ## Globar data by AppProvider
