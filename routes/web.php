@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\front\XecomController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,14 @@ Route::middleware([
     Route::get('/edit-subCategory{id}',[SubCategoryController::class,'edit'])->name('edit-subCategory');
     Route::post('/update-subCategory',[SubCategoryController::class,'updateSubCategory'])->name('update-subCategory');
     Route::get('/delete-subCategory{id}',[SubCategoryController::class,'delete'])->name('delete-subCategory');
+    //ajax subcategory
+    Route::get('/getSubCategory/{id}',[SubCategoryController::class,'getSubCategory'])->name('getSubCategory');
+
+
+
+    //Get add product
+    Route::get('/addProduct',[ProductController::class,'addProduct'])->name('addProduct');
+
 
 
 });

@@ -173,7 +173,7 @@
     </script>
 @endif
 
-
+@yield('admin-js')
 
 </body>
 

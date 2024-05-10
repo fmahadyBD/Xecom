@@ -54,4 +54,11 @@ class SubCategoryController extends Controller
         $this->subCategory->delete();
         return redirect()->back()->with('message', 'Delete SubCategory Successfully!');
     }
+
+    //ajax
+    public function getSubCategory($id) {
+        $this->subCategory = SubCategory::where('category_id', $id)->get();
+        return response()->json($this->subCategory);
+    }
+
 }

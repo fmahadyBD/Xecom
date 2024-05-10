@@ -3,6 +3,7 @@
 -   The Topic's name: \*
 
 *   [One-to-One Table Relation ](#one-to-one-table-relation)
+*   [Subcategory by the Category ](#Subcategory by the Category)
 
 ## One-to-One Table Relation
 
@@ -58,3 +59,110 @@ This retrieves the `Category` object related to the `$subCategory`.
 ## Conclusion
 
 In summary, the `category` function within the `Subcategory` model enables the establishment of a one-to-one table relation between the `Subcategory` and `Category` tables in Laravel. By utilizing Eloquent's built-in methods, developers can easily navigate and work with related data in their applications.
+
+
+
+
+
+
+## Subcategory by the Category
+
+### Loading Data in Controller
+```php
+// Load the blade file to load the data
+function addProduct()
+{
+    $categories = Category::all();
+    $SubCategories = SubCategory::all();
+    return view('admin.product.add-sub-product', [
+        'SubCategories' => $SubCategories,
+        'categories' => $categories,
+    ]);
+}
+```
+
+### Dropdown Menu
+```html
+<div class="form-group row">
+    <label for="" class="col-md-4 text-right">Select Category :</label>
+    <div class="col-md-8">
+        <select name="category_id" id="categoryId" class="form-control">
+            <option value="" disabled="" selected>Select One</option>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <label for="" class="col-md-4 text-right">Sub Category :</label>
+    <div class="col-md-8">
+        <select name="subcategory_id" id="subCategoryId" class="form-control">
+            <!-- Adjusted name attribute -->
+            <option value="" disabled="" selected>Select One</option>
+            @foreach ($SubCategories as $SubCategory)
+                <option value="{{ $SubCategory->id }}">{{ $SubCategory->name }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+```
+
+### JavaScript (yield() in master)
+```javascript
+@section('admin-js')
+<script>
+    function toggleSubCategoryDropdown(enable) {
+        if (enable) {
+            $('#subCategoryId').prop('disabled', false);
+        } else {
+            $('#subCategoryId').prop('disabled', true);
+            $('#subCategoryId').val('').change();
+        }
+    }
+
+    $(document).on("change", '#categoryId', function() {
+        var categoryId = $(this).val();
+        if (categoryId) {
+            toggleSubCategoryDropdown(true);
+            $.ajax({
+                url: '/getSubCategory/' + categoryId,
+                method: 'GET',
+                dataType: 'json',
+                success: function(res) {
+                    var options = '<option value="" disabled="" selected>Select One</option>';
+                    $.each(res, function(key, value) {
+                        options += '<option value="' + value.id + '">' + value.name +
+                            '</option>';
+                    });
+                    $('#subCategoryId').html(options);
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
+        } else {
+            toggleSubCategoryDropdown(false);
+        }
+    });
+
+    $(document).ready(function() {
+        toggleSubCategoryDropdown(false);
+    });
+</script>
+@endsection
+```
+
+### Route for Asynchronous Call
+```php
+Route::get('/getSubCategory/{id}',[SubCategoryController::class,'getSubCategory'])->name('getSubCategory');
+```
+
+### Controller Function
+```php
+public function getSubCategory($id) {
+    $this->subCategory = SubCategory::where('category_id', $id)->get();
+    return response()->json($this->subCategory);
+}
+```
+```
