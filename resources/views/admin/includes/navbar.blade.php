@@ -41,32 +41,8 @@
 
                     </ul>
             </li>
-            <li>
-                <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
-                    <span class="nav-label">Brand</span><i class="fa fa-angle-left arrow"></i></a>
-                    <ul class="nav-2-level collapse">
-                        <li>
-                            <a href="colors.html">Colors</a>
-                        </li>
-                        <li>
-                            <a href="typography.html">Typography</a>
-                        </li>
 
-                    </ul>
-            </li>
             <li>
-                <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
-                    <span class="nav-label">Unit</span><i class="fa fa-angle-left arrow"></i></a>
-                    <ul class="nav-2-level collapse">
-                        <li>
-                            <a href="colors.html">Colors</a>
-                        </li>
-                        <li>
-                            <a href="typography.html">Typography</a>
-                        </li>
-
-                    </ul>
-            </li>
             <li>
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
                     <span class="nav-label">Product</span><i class="fa fa-angle-left arrow"></i></a>
@@ -75,7 +51,7 @@
                             <a href="{{route('addProduct')}}">Add Product</a>
                         </li>
                         <li>
-                            <a href="typography.html">Typography</a>
+                            <a href="{{route('manageProduct')}}">Manage Product</a>
                         </li>
 
                     </ul>

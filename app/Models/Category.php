@@ -46,12 +46,14 @@ class Category extends Model
             }
             self::$imageUrl     = self::saveImage($request);
         } else {
-            self::$imageUrl                     = self::$category->image;
+            self::$imageUrl     = self::$category->image;
         }
-        self::$category->name                   = $request->name;
-        self::$category->description            = $request->description;
-        self::$category->image                      = self::$imageUrl;
-        self::$category->status                  = $request->status;
+
+
+        self::$category->name         = $request->name;
+        self::$category->description  = $request->description;
+        self::$category->image        = self::$imageUrl;
+        self::$category->status       = $request->status;
         self::$category->save();
     }
 }

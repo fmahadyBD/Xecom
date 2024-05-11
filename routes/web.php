@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\front\XecomController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubCategoryController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 
@@ -48,6 +49,12 @@ Route::middleware([
 
     //Get add product
     Route::get('/addProduct',[ProductController::class,'addProduct'])->name('addProduct');
+    Route::post('/store',[ProductController::class,'store'])->name('store-product');
+    Route::get('/manageProduct',[ProductController::class,'manageProduct'])->name('manageProduct');
+    Route::get('/delete-product/{id}',[ProductController::class,'deleteProduct'])->name('delete-product');
+    Route::get('/edit-product/{id}',[ProductController::class,'editProduct'])->name('edit-product');
+    Route::post('/update-product',[ProductController::class,'updateProduct'])->name('update-product');
+
 
 
 

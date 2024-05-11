@@ -22,12 +22,18 @@ class SubCategoryController extends Controller
 
         return redirect()->back()->with('message', 'Add new SubCategory Successfully!');
     }
+
+    
     public function manageSubCategory()
     {
 
         $this->subCategories = SubCategory::orderBy('id', 'DESC')->get();
         return view('admin.sub-category.manage-sub-category', ['subCategories' => $this->subCategories]);
     }
+
+
+
+
     public function edit($id)
     {
         return view('admin.sub-category.edit-sub-category',[
